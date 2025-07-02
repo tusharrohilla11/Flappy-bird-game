@@ -116,11 +116,15 @@ body{
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 3rem;
-  color: white;
+  font-size: 4rem;
+  color: #000000;
   font-weight: bold;
   z-index: 20;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 4px rgba(255,255,255,0.8), -2px -2px 4px rgba(255,255,255,0.8);
+  background-color: rgba(255,255,255,0.3);
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 3px solid #000000;
 }
 
 /* Game Over title styling */
