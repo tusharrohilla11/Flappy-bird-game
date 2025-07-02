@@ -6,70 +6,90 @@
 body{
   background-color: cadetblue;
   background-image:-webkit-linear-gradient(rgb(175,75,75),rgb(31,31,31),rgb(59,153,148));
-  min-height :800px; 
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
 #game{
-  height:500px;
-  width:400px;
-  border:1px solid black;
+  height: 100vh;
+  width: 100vw;
   background:url(bg2.avif);
   background-size: cover;
-  margin:1rem auto;
+  position: relative;
   overflow:hidden;
 }
 
 #block{
-  height:500px;
-  width:50px;
-  background-color:blue;
-  position:relative;
-  left:200px;
-  /* now we animate the block */
-  animation:block 2s infinite linear;
+  height: 100vh;
+  width: 80px;
+  background: linear-gradient(to bottom, 
+    blue 0%, 
+    blue 25%, 
+    transparent 25%, 
+    transparent 75%, 
+    blue 75%, 
+    blue 100%);
+  position:absolute;
+  left: 100vw;
+  animation:block 3s infinite linear;
 }
+
+/* Remove the ::after pseudo-element as we're using gradient now */
 
 /* keyframes is used to animate the block */
 /* when it is 0% it is at 400px and when it is 100% it is at -50px */
 @keyframes block{
   0%{
-    left:400px;
+    left: 100vw;
   }
   100%{
-    left:-50px;
+    left: -80px;
   }
 }
 
 /* HOLE->FROM WHICH THE BIRD GOES */
 #hole{
-  height:200px;
-  width:50px;
-  background-color:yellow;
-  position:relative;
-  left:400px;
-  top:-500px;
-  animation:block 2s linear infinite;
+  height: 30vh;
+  width: 80px;
+  background-color: transparent;
+  position:absolute;
+  left: 100vw;
+  top: 35vh;
+  animation:block 3s linear infinite;
+  border: none;
 }
 
 #bird{
-  position: fixed;
-  top:100px;
-  height:50px;
-  width:50px;
+  position: absolute;
+  top: 50vh;
+  left: 10vw;
+  height: 60px;
+  width: 60px;
+  z-index: 10;
 }
 
 #bird img{
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
 }
 
 #result{
-  height:200px;
-  width:500px;
-  background-color: brown;
-  margin :5rem auto;
-  border-radius:20px;
-  text-align:center;
+  height: 300px;
+  width: 600px;
+  background-color: rgba(139, 69, 19, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  text-align: center;
+  display: none;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
 #btn{
@@ -88,4 +108,25 @@ body{
   margin-top: 1rem;
   font-size: 2rem;
   color:seashell;
+}
+
+/* Score display */
+#score{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: white;
+  font-weight: bold;
+  z-index: 20;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* Game Over title styling */
+#result h1{
+  color: white;
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
